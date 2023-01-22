@@ -32,7 +32,7 @@ export default {
     },
     methods: {
         callNum(num){
-            this.PlusHisto.date=Date()
+            this.PlusHisto.date=this.date()
             this.PlusHisto.numero=num
             this.PlusHisto.nom=this.$store.state.historique.find(contact => contact.numero === num ).nom
             this.$store.commit("ajoutHisto", this.PlusHisto)
@@ -42,6 +42,15 @@ export default {
                 numero:"",
                 date:""
             }
+        },
+        date(){
+            const timeElapsed = Date.now();
+            const today = new Date(timeElapsed);
+            let a1 = today.toLocaleDateString()
+            let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+            let b2 = time
+
+            return a1 +" à "+ b2
         }
     },
 }

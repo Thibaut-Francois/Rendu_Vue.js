@@ -16,7 +16,7 @@ export default createStore({
       {
         nom:"Maman",
         numero:"0612345678",
-        date:"Fri Jan 20 2023 08:00:00 GMT+0100 (heure normale d’Europe centrale)",
+        date:"Appel passé le 19/01/2023 à 08:00:00",
       },
     ],
     btn:false
@@ -28,7 +28,7 @@ export default createStore({
       state.contacts.push(plus)
     },
     ajoutHisto(state, plus){
-      state.historique.push(plus)
+      state.historique.unshift(plus)
     },
     listeOuForm(state){
       if(state.btn){

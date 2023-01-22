@@ -69,7 +69,8 @@ export default {
             return this.PlusHisto.numero =""
         },
         callNum(){
-            this.PlusHisto.date=Date()
+            if (this.PlusHisto.numero == "") return
+            this.PlusHisto.date=this.date()
             this.PlusHisto.nom=this.mesContacts
             this.$store.commit("ajoutHisto", this.PlusHisto)
 
@@ -78,6 +79,15 @@ export default {
                 numero:"",
                 date:""
             }
+        },
+        date(){
+            const timeElapsed = Date.now();
+            const today = new Date(timeElapsed);
+            let a1 = today.toLocaleDateString()
+            let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+            let b2 = time
+
+            return a1 +" à "+ b2
         }
     },
 }
